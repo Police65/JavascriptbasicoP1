@@ -1,3 +1,6 @@
+let acumb = 0;
+let acuma = 0;
+let acumcpc = 0;
 let gene = 0,
   vuelto = 0,
   pago = 0,
@@ -35,6 +38,14 @@ while (z == 1) {
   cca = 0;
   caz = 0;
   ch = 0;
+  let monta;
+  let montb;
+  let montc;
+  let ttba;
+  monta = 0;
+  montb = 0;
+  montc = 0;
+  ttba = 0;
   let ced;
   let nom;
   do {
@@ -42,38 +53,44 @@ while (z == 1) {
   } while (nom > -10000000000000);
   do {
     ced = parseInt(prompt("ingrese su cedula"));
-  } while (isNaN(ced));
+  } while (isNaN(ced) || ced > 99999999);
 
   p = 1;
   while (p == 1) {
-    let categoria = parseInt(
-      prompt(
-        "que desea comprar?: 1: Cigarrillos y bebidas alcoholicas, 2: Enlatados y carnes, 3: Arroz, Azúcar, Huevos. "
-      )
-    );
-
+    let categoria;
+    do {
+      categoria = parseInt(
+        prompt(
+          "que desea comprar?: 1: Cigarrillos y bebidas alcoholicas, 2: Enlatados y carnes, 3: Arroz, Azúcar, Huevos. "
+        )
+      );
+    } while (categoria > 3 || categoria < 1 || isNaN(categoria));
     switch (categoria) {
       case 1:
-        ca++;
-        des = parseInt(
-          prompt(
-            "desea comprar: 1. cigarrillos, 2. bebida alcoholica (10% de monto adicional al IVA por valor al lujo)"
-          )
-        );
-
-        if (des == 1) {
-          cc += parseInt(
-            prompt("cuantos cigarrillos desea? el precio es de 4 la unidad")
+        do {
+          des = parseInt(
+            prompt(
+              "desea comprar: 1. cigarrillos, 2. bebida alcoholica (10% de monto adicional al IVA por valor al lujo)"
+            )
           );
+        } while (des > 3 || des < 1 || isNaN(des));
+        if (des == 1) {
+          do {
+            cc += parseInt(
+              prompt("cuantos cigarrillos desea? el precio es de 4 la unidad")
+            );
+          } while (isNaN(cc));
           ttc = cc * 4;
           pr = (ttc * 16) / 100;
           ttc = ttc + pr;
           lj = (ttc * 16) / 100;
           ttc = ttc + lj;
         } else if (des == 2) {
-          cba += parseInt(
-            prompt("cuantas bebidas desea? el precio es de 8 la unidad")
-          );
+          do {
+            cba += parseInt(
+              prompt("cuantas bebidas desea? el precio es de 8 la unidad")
+            );
+          } while (isNaN(cba));
           tba = cba * 8;
           pr = (16 * tba) / 100;
           tba = tba + pr;
@@ -82,62 +99,81 @@ while (z == 1) {
         }
         break;
       case 2:
-        cb++;
-        des = parseInt(prompt("desea comprar: 1. Enlatados, 2. Carnes"));
+        do {
+          des = parseInt(prompt("desea comprar: 1. Enlatados, 2. Carnes"));
+        } while (des > 2 || des < 1 || isNaN(des));
         if (des == 1) {
-          ce += parseInt(
-            prompt(
-              "Que cantidad de enlatados desea? el precio es de 22 la unidad (16% de IVA)"
-            )
-          );
+          do {
+            ce += parseInt(
+              prompt(
+                "Que cantidad de enlatados desea? el precio es de 22 la unidad (16% de IVA)"
+              )
+            );
+          } while (isNaN(ce));
           tte = ce * 22;
           pr = (16 * tte) / 100;
           tte = tte + pr;
         } else if (des == 2) {
-          ccr += parseInt(
-            prompt(
-              "Cantidad de carnes desea? el precio es de 24 la unidad (16% de IVA)"
-            )
-          );
+          do {
+            ccr += parseInt(
+              prompt(
+                "Cantidad de carnes desea? el precio es de 24 la unidad (16% de IVA)"
+              )
+            );
+          } while (isNaN(ccr));
           ttcr = ccr * 24;
           pr = (16 * ttcr) / 100;
           ttcr = ttcr + pr;
         }
         break;
       case 3:
-        cpc++;
-        des = parseInt(prompt("desea comprar: 1. arroz 2. azúcar 3. huevos"));
+        do {
+          des = parseInt(prompt("desea comprar: 1. arroz 2. azúcar 3. huevos"));
+        } while (des > 3 || des < 1 || isNaN(des));
         if (des == 1) {
-          cca += parseInt(
-            prompt("Que cantidad de Arroz desea? el precio es de 11 la unidad")
-          );
+          do {
+            cca += parseInt(
+              prompt(
+                "Que cantidad de Arroz desea? el precio es de 11 la unidad"
+              )
+            );
+          } while (isNaN(cca));
           ttar = cca * 11;
         } else if (des == 2) {
-          caz += parseInt(
-            prompt("Cuantos kg de azucar de sea? el precio es de 12 el kg")
-          );
+          do {
+            caz += parseInt(
+              prompt("Cuantos kg de azucar de sea? el precio es de 12 el kg")
+            );
+          } while (isNaN(caz));
           ttaz = caz * 12;
         } else if (des == 3) {
-          ch = parseInt(
-            prompt(
-              "Que Cantidad de Huevos desea? el precio es de 30 por docena"
-            )
-          );
+          do {
+            ch = parseInt(
+              prompt(
+                "Que Cantidad de Huevos desea? el precio es de 30 por docena"
+              )
+            );
+          } while (isNaN(ch));
           tth = ch * 30;
         }
         break;
       default:
         break;
     }
-
-    p = parseInt(prompt("desea comprar algo más? 1. si 2. no"));
+    do {
+      p = parseInt(prompt("desea comprar algo más? 1. si 2. no"));
+    } while (p < 1 || p > 2 || isNaN(p));
   }
 
-  let monta = ttc + tba;
-  let montb = tte + ttcr;
-  let montc = ttar + ttaz + tth;
-  let ttba = monta + montb + montc;
-  let cantip = ca + cb + cpc;
+  ca = cc + cba;
+  cb = ccr + ce;
+  cpc = cca + caz + ch;
+
+  monta = ttc + tba;
+  montb = tte + ttcr;
+  montc = ttar + ttaz + tth;
+  ttba = monta + montb + montc;
+  cantip = ca + cb + cpc;
 
   alert(
     "su nombre es: " +
@@ -204,8 +240,22 @@ while (z == 1) {
     alert("al cliente se le regresa: " + vuelto);
     gene = gene + ttba;
   }
-
-  z = parseInt(prompt("algún otro cliente? 1. si 2. no"));
+  while (pago < ttba) {
+    pago = parseInt(prompt("ingrese su pago, el monto es de: " + ttba));
+    if (pago > ttba) {
+      vuelto = pago - ttba;
+      alert("al cliente se le regresa: " + vuelto);
+      gene = gene + ttba;
+    }
+  }
+  acuma = acuma + ca;
+  acumb = acumb + cb;
+  acumcpc = acumcpc + cpc;
+  do {
+    z = parseInt(prompt("algún otro cliente? 1. si 2. no"));
+  } while (z > 2 || z < 1 || isNaN(z));
 }
-
+alert(`el acumulado de los productos C del dia es de: ${acumcpc}`);
+alert(`el acumulado de los productos B del dia es de: ${acumb}`);
+alert(`el acumulado de los productos A del dia es de: ${acuma}`);
 alert(`el monto hecho en el día es de : ${gene}`);

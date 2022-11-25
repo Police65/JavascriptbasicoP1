@@ -1,3 +1,6 @@
+let acumb = 0;
+let acuma = 0;
+let acumcpc = 0;
 let gene = 0,
   vuelto = 0,
   pago = 0,
@@ -35,6 +38,14 @@ while (z == 1) {
   cca = 0;
   caz = 0;
   ch = 0;
+  let monta;
+  let montb;
+  let montc;
+  let ttba;
+  monta = 0;
+  montb = 0;
+  montc = 0;
+  ttba = 0;
   let ced;
   let nom;
   do {
@@ -54,7 +65,6 @@ while (z == 1) {
 
     switch (categoria) {
       case 1:
-        ca++;
         des = parseInt(
           prompt(
             "desea comprar: 1. cigarrillos, 2. bebida alcoholica (10% de monto adicional al IVA por valor al lujo)"
@@ -82,7 +92,6 @@ while (z == 1) {
         }
         break;
       case 2:
-        cb++;
         des = parseInt(prompt("desea comprar: 1. Enlatados, 2. Carnes"));
         if (des == 1) {
           ce += parseInt(
@@ -105,7 +114,6 @@ while (z == 1) {
         }
         break;
       case 3:
-        cpc++;
         des = parseInt(prompt("desea comprar: 1. arroz 2. azúcar 3. huevos"));
         if (des == 1) {
           cca += parseInt(
@@ -133,11 +141,15 @@ while (z == 1) {
     p = parseInt(prompt("desea comprar algo más? 1. si 2. no"));
   }
 
-  let monta = ttc + tba;
-  let montb = tte + ttcr;
-  let montc = ttar + ttaz + tth;
-  let ttba = monta + montb + montc;
-  let cantip = ca + cb + cpc;
+  ca = cc + cba;
+  cb = ccr + ce;
+  cpc = cca + caz + ch;
+
+  monta = ttc + tba;
+  montb = tte + ttcr;
+  montc = ttar + ttaz + tth;
+  ttba = monta + montb + montc;
+  cantip = ca + cb + cpc;
 
   alert(
     "su nombre es: " +
@@ -205,7 +217,13 @@ while (z == 1) {
     gene = gene + ttba;
   }
 
+  acuma = acuma + ca;
+  acumb = acumb + cb;
+  acumcpc = acumcpc + cpc;
+
   z = parseInt(prompt("algún otro cliente? 1. si 2. no"));
 }
-
+alert(`el acumulado de los productos C del dia es de: ${acumcpc}`);
+alert(`el acumulado de los productos B del dia es de: ${acumb}`);
+alert(`el acumulado de los productos A del dia es de: ${acuma}`);
 alert(`el monto hecho en el día es de : ${gene}`);
