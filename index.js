@@ -1,4 +1,7 @@
-let cba = 0,
+let gene = 0,
+  vuelto = 0,
+  pago = 0,
+  cba = 0,
   tba = 0,
   cc = 0,
   cca = 0,
@@ -22,10 +25,26 @@ let pr = 0;
 let lj = 0;
 let z = 1;
 while (z == 1) {
-  let nom = prompt("cual es su nombre?");
+  ca = 0;
+  cb = 0;
+  cpc = 0;
+  ce = 0;
+  ccr = 0;
+  cba = 0;
+  cc = 0;
+  cca = 0;
+  caz = 0;
+  ch = 0;
+  let ced;
+  let nom;
+  do {
+    nom = prompt("cual es su nombre?");
+  } while (nom > -10000000000000);
+  do {
+    ced = parseInt(prompt("ingrese su cedula"));
+  } while (isNaN(ced));
 
-  let ced = parseInt(prompt("ingrese su cedula"));
-
+  p = 1;
   while (p == 1) {
     let categoria = parseInt(
       prompt(
@@ -169,9 +188,24 @@ while (z == 1) {
       "cantidad de productos comprados: " +
       cantip +
       "\n" +
-      "el tota a pagar es de: " +
+      "el total a pagar es de: " +
       ttba
   );
 
+  pago = parseInt(prompt("ingrese su pago, el monto es de: " + ttba));
+
+  if (pago < ttba) {
+    alert("fondo insuficiente");
+  } else if (pago == ttba) {
+    alert("gracias por su compra");
+    gene = gene + ttba;
+  } else if (pago > ttba) {
+    vuelto = pago - ttba;
+    alert("al cliente se le regresa: " + vuelto);
+    gene = gene + ttba;
+  }
+
   z = parseInt(prompt("algún otro cliente? 1. si 2. no"));
 }
+
+alert(`el monto hecho en el día es de : ${gene}`);
